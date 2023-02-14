@@ -1,5 +1,4 @@
 import 'package:animator/animator.dart';
-import '../widgets/api/custom_loading_api.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:simple_animations/simple_animations.dart';
@@ -10,6 +9,7 @@ import '../utils/constants.dart';
 import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
 import '../utils/strings.dart';
+import '../widgets/api/custom_loading_api.dart';
 
 class LogInScreen extends StatelessWidget {
   LogInScreen({Key? key}) : super(key: key);
@@ -26,7 +26,6 @@ class LogInScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-
           Row(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -36,86 +35,79 @@ class LogInScreen extends StatelessWidget {
                 Assets.bot,
                 scale: 6,
               ),
-
               Padding(
                 padding: const EdgeInsets.only(top: 18.0),
                 child: languageStateName == 'Arabic'
                     ? Row(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-
-                    PlayAnimationBuilder(
-                      tween: IntTween(begin: 0, end: 3),
-                      duration: const Duration(milliseconds: 1000),
-                      delay: const Duration(milliseconds: 1200),
-                      builder: (context, value, child) {
-                        return Text(
-                          'bot'.substring(0, value),
-                          style: TextStyle(
-                              fontSize: Dimensions.defaultTextSize * 3.2,
-                              fontWeight: FontWeight.w400,
-                              color: Theme.of(context).primaryColor),
-                        );
-                      },
-                    ),
-                    PlayAnimationBuilder(
-                      tween: IntTween(begin: 0, end: 2),
-                      duration: const Duration(milliseconds: 1000),
-                      delay: const Duration(milliseconds: 200),
-                      builder: (context, value, child) {
-                        return Text(
-                          'ad'.substring(0, value),
-                          style: TextStyle(
-                              fontSize: Dimensions.defaultTextSize * 3.2,
-                              fontWeight: FontWeight.w400,
-                              color: CustomColor.primaryColor),
-                        );
-                      },
-                    ),
-                  ],
-                )
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          PlayAnimationBuilder(
+                            tween: IntTween(begin: 0, end: 3),
+                            duration: const Duration(milliseconds: 1000),
+                            delay: const Duration(milliseconds: 1200),
+                            builder: (context, value, child) {
+                              return Text(
+                                'GPT'.substring(0, value),
+                                style: TextStyle(
+                                    fontSize: Dimensions.defaultTextSize * 3, fontWeight: FontWeight.w400, color: Theme.of(context).primaryColor),
+                              );
+                            },
+                          ),
+                          PlayAnimationBuilder(
+                            tween: IntTween(begin: 0, end: 2),
+                            duration: const Duration(milliseconds: 1000),
+                            delay: const Duration(milliseconds: 200),
+                            builder: (context, value, child) {
+                              return Text(
+                                'ad'.substring(0, value),
+                                style:
+                                    TextStyle(fontSize: Dimensions.defaultTextSize * 3, fontWeight: FontWeight.w400, color: CustomColor.primaryColor),
+                              );
+                            },
+                          ),
+                        ],
+                      )
                     : Row(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    PlayAnimationBuilder(
-                      tween: IntTween(begin: 0, end: 4),
-                      duration: const Duration(milliseconds: 1000),
-                      delay: const Duration(milliseconds: 200),
-                      builder: (context, value, child){
-                        return Text(
-                          'Chat'.substring(0, value),
-                          style: TextStyle(
-                              fontSize: Dimensions.defaultTextSize * 6.2,
-                              fontWeight: FontWeight.bold,
-                              color: CustomColor.primaryColor,
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          PlayAnimationBuilder(
+                            tween: IntTween(begin: 0, end: 4),
+                            duration: const Duration(milliseconds: 1000),
+                            delay: const Duration(milliseconds: 200),
+                            builder: (context, value, child) {
+                              return Text(
+                                'Chat'.substring(0, value),
+                                style: TextStyle(
+                                  fontSize: Dimensions.defaultTextSize * 6,
+                                  fontWeight: FontWeight.bold,
+                                  color: CustomColor.primaryColor,
+                                ),
+                              );
+                            },
                           ),
-                        );
-                      },
-                    ),
-                    PlayAnimationBuilder(
-                      tween: IntTween(begin: 0, end: 3),
-                      duration: const Duration(milliseconds: 1000),
-                      delay: const Duration(milliseconds: 1200),
-                      builder: (context, value, child){
-                        return Text(
-                          'bot'.substring(0, value),
-                          style: TextStyle(
-                              fontSize: Dimensions.defaultTextSize * 6.2,
-                              fontWeight: FontWeight.bold,
-                              color: Theme.of(context).primaryColor,
+                          PlayAnimationBuilder(
+                            tween: IntTween(begin: 0, end: 3),
+                            duration: const Duration(milliseconds: 1000),
+                            delay: const Duration(milliseconds: 1200),
+                            builder: (context, value, child) {
+                              return Text(
+                                'GPT'.substring(0, value),
+                                style: TextStyle(
+                                  fontSize: Dimensions.defaultTextSize * 6,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                              );
+                            },
                           ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
+                        ],
+                      ),
               ),
             ],
           ),
-
           Column(
             children: [
               Obx(() => controller.isLoading
@@ -123,16 +115,12 @@ class LogInScreen extends StatelessWidget {
                   : Container(
                       alignment: Alignment.center,
                       width: double.infinity,
-                      padding:
-                          EdgeInsets.all(Dimensions.defaultPaddingSize * 0.5),
+                      padding: EdgeInsets.all(Dimensions.defaultPaddingSize * 0.5),
                       margin: EdgeInsets.symmetric(
                         horizontal: Dimensions.widthSize * 3,
                       ),
                       decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.circular(Dimensions.radius),
-                          border: Border.all(
-                              color: CustomColor.primaryColor, width: 1)),
+                          borderRadius: BorderRadius.circular(Dimensions.radius), border: Border.all(color: CustomColor.primaryColor, width: 1)),
                       child: InkWell(
                         onTap: () {
                           controller.signInWithGoogle(context);
@@ -145,18 +133,14 @@ class LogInScreen extends StatelessWidget {
                             Image.asset(Assets.google),
                             SizedBox(width: Dimensions.widthSize * 2),
                             PlayAnimationBuilder(
-                              tween: IntTween(
-                                  begin: 0, end: Strings.google.tr.length),
+                              tween: IntTween(begin: 0, end: Strings.google.tr.length),
                               duration: const Duration(milliseconds: 1000),
                               delay: const Duration(milliseconds: 200),
                               builder: (context, value, child) {
                                 return Text(
                                   Strings.google.tr.substring(0, value),
                                   style: TextStyle(
-                                      color: CustomColor.primaryColor,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize:
-                                          Dimensions.defaultTextSize * 1.8),
+                                      color: CustomColor.primaryColor, fontWeight: FontWeight.w500, fontSize: Dimensions.defaultTextSize * 1.8),
                                 );
                               },
                             ),
@@ -164,9 +148,7 @@ class LogInScreen extends StatelessWidget {
                         ),
                       ),
                     )),
-
               SizedBox(height: Dimensions.heightSize),
-
               TextButton(
                   onPressed: () {
                     controller.goToHomePage();
@@ -179,9 +161,7 @@ class LogInScreen extends StatelessWidget {
                       builder: (context, animatorState, child) {
                         return Text(
                           Strings.continueAsGuest.tr,
-                          style: TextStyle(
-                              color: CustomColor.primaryColor,
-                              fontSize: animatorState.value),
+                          style: TextStyle(color: CustomColor.primaryColor, fontSize: animatorState.value),
                         );
                       })),
             ],

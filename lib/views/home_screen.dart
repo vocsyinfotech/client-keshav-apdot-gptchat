@@ -37,7 +37,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    print(DateTime.now());
     addAds(true);
   }
 
@@ -160,9 +159,11 @@ class _HomeScreenState extends State<HomeScreen> {
       request: const AdRequest(),
       rewardedAdLoadCallback: RewardedAdLoadCallback(onAdLoaded: (RewardedAd ad) {
         _rewardedAd = ad;
+        print("Rewarded Loaded");
       }, onAdFailedToLoad: (LoadAdError error) {
         _rewardedAd = null;
         Get.toNamed(Routes.chatScreen);
+        print("Rewarded failed Load $error");
       }),
     );
   }
@@ -195,6 +196,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      addAds(true);
+    });
     RxBool isDark = Get.isDarkMode.obs;
     Color backgroundColor = isDark.value ? CustomColor.whiteColor : CustomColor.primaryColor;
     return Scaffold(
@@ -444,9 +448,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   delay: const Duration(milliseconds: 1200),
                   builder: (context, value, child) {
                     return Text(
-                      'bot'.substring(0, value),
-                      style:
-                          TextStyle(fontSize: Dimensions.defaultTextSize * 3.2, fontWeight: FontWeight.w400, color: Theme.of(context).primaryColor),
+                      'GPT'.substring(0, value),
+                      style: TextStyle(fontSize: Dimensions.defaultTextSize * 3, fontWeight: FontWeight.w400, color: Theme.of(context).primaryColor),
                     );
                   },
                 ),
@@ -457,7 +460,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   builder: (context, value, child) {
                     return Text(
                       'Chat'.substring(0, value),
-                      style: TextStyle(fontSize: Dimensions.defaultTextSize * 3.2, fontWeight: FontWeight.w400, color: CustomColor.primaryColor),
+                      style: TextStyle(fontSize: Dimensions.defaultTextSize * 3, fontWeight: FontWeight.w400, color: CustomColor.primaryColor),
                     );
                   },
                 ),
@@ -476,7 +479,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     return Text(
                       'Chat'.substring(0, value),
                       style: TextStyle(
-                        fontSize: Dimensions.defaultTextSize * 6.2,
+                        fontSize: Dimensions.defaultTextSize * 6,
                         fontWeight: FontWeight.bold,
                         color: CustomColor.primaryColor,
                       ),
@@ -489,9 +492,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   delay: const Duration(milliseconds: 1200),
                   builder: (context, value, child) {
                     return Text(
-                      'bot'.substring(0, value),
+                      'GPT'.substring(0, value),
                       style: TextStyle(
-                        fontSize: Dimensions.defaultTextSize * 6.2,
+                        fontSize: Dimensions.defaultTextSize * 6,
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).primaryColor,
                       ),

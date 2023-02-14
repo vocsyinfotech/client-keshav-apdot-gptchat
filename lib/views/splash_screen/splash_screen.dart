@@ -46,7 +46,7 @@ class SplashScreen extends StatelessWidget {
                         delay: const Duration(milliseconds: 1200),
                         builder: (context, value, child) {
                           return Text(
-                            'bot'.substring(0, value),
+                            'GPT'.substring(0, value),
                             style: TextStyle(
                                 fontSize: Dimensions.defaultTextSize * 3.2, fontWeight: FontWeight.w400, color: Theme.of(context).primaryColor),
                           );
@@ -88,7 +88,7 @@ class SplashScreen extends StatelessWidget {
                         delay: const Duration(milliseconds: 1200),
                         builder: (context, value, child) {
                           return Text(
-                            'bot'.substring(0, value),
+                            'GPT'.substring(0, value),
                             style: TextStyle(
                                 fontSize: Dimensions.defaultTextSize * 3.2, fontWeight: FontWeight.w400, color: Theme.of(context).primaryColor),
                           );
