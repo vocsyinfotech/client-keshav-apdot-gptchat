@@ -1,6 +1,7 @@
-import '../helper/unit_id_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+
+import '../helper/unit_id_helper.dart';
 
 class AdMobHelper {
   InterstitialAd? interstitialAd;
@@ -12,7 +13,6 @@ class AdMobHelper {
       MobileAds.instance.initialize();
     }
     MobileAds.instance.initialize();
-
   }
 
   //banner ad
@@ -24,7 +24,7 @@ class AdMobHelper {
       listener: BannerAdListener(onAdLoaded: (_) {
         // isBannerAdReady = true;
         // ignore: avoid_print
-        print('BannerAd has been initial}');
+        print('BannerAd has been initial');
       }, onAdFailedToLoad: (ad, error) {
         // ignore: avoid_print
         print('BannerAd has been crushed ${error.message}');
@@ -32,7 +32,7 @@ class AdMobHelper {
         ad.dispose();
       }, onAdOpened: (Ad ad) {
         // ignore: avoid_print
-        print('BannerAd has been opened}');
+        print('BannerAd has been opened');
       }),
     );
 
@@ -48,8 +48,7 @@ class AdMobHelper {
       adLoadCallback: InterstitialAdLoadCallback(onAdLoaded: (ad) {
         interstitialAd = ad;
         interstitialAd.show();
-        interstitialAd.fullScreenContentCallback = FullScreenContentCallback(
-            onAdFailedToShowFullScreenContent: ((ad, error) {
+        interstitialAd.fullScreenContentCallback = FullScreenContentCallback(onAdFailedToShowFullScreenContent: ((ad, error) {
           ad.dispose();
           debugPrint(error.message);
         }), onAdDismissedFullScreenContent: (ad) {
@@ -70,8 +69,7 @@ class AdMobHelper {
       adLoadCallback: InterstitialAdLoadCallback(onAdLoaded: (ad) {
         interstitialAd = ad;
         interstitialAd!.show();
-        interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(
-            onAdFailedToShowFullScreenContent: ((ad, error) {
+        interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(onAdFailedToShowFullScreenContent: ((ad, error) {
           ad.dispose();
           debugPrint(error.message);
         }), onAdDismissedFullScreenContent: (ad) {

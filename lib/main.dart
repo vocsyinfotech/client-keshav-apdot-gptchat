@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 // ignore: depend_on_referenced_packages
+import 'package:chatBot/helper/unit_id_helper.dart';
 import 'package:chatBot/utils/config.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -33,14 +34,14 @@ void main() async {
     name: 'chatbot',
   );
   await GetStorage.init();
+  UnitIdHelper().getAdsId();
 
   SystemChrome.setPreferredOrientations([
     // Locking Device Orientation
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   // main app
   runApp(const MyApp());
 }

@@ -19,22 +19,19 @@ class _InAppScreenState extends State<InAppScreen> {
   bool _available = true;
 
   List<ProductDetails> _products = <ProductDetails>[];
-  late StreamSubscription _subscription;
+  // late StreamSubscription _subscription;
 
   Future<void> _getIds() async {
     var collection = FirebaseFirestore.instance.collection('products').doc("product-ids");
     final DocumentSnapshot snapshot = await collection.get();
-    print('=====Id===== 00  ${snapshot.get('ids')}');
     setState(() {
       idList = snapshot.get('ids');
-      print('=====Id===== 11 ${idList.length}');
     });
   }
 
   void _initialize() async {
     _getIds().then((value) async {
       _available = await _iap.isAvailable();
-      print('=====Id===== 33  $_available');
       if (_available) {
         await _getProducts();
       } else {
@@ -45,18 +42,14 @@ class _InAppScreenState extends State<InAppScreen> {
 
   void buyProduct(ProductDetails prod) {
     final PurchaseParam purchaseParam = PurchaseParam(productDetails: prod);
-    _iap.buyConsumable(purchaseParam: purchaseParam, autoConsume: false);
+    _iap.buyNonConsumable(purchaseParam: purchaseParam);
   }
 
   Future<void> _getProducts() async {
     Set<String> ids = Set.from(idList);
-    print('=====Id===== 44 ${ids.toSet()}');
     ProductDetailsResponse response = await _iap.queryProductDetails(ids);
-    print('=====Id===== 55 ${response.productDetails}');
-
     setState(() {
       _products = response.productDetails;
-      print('=====Id===== 66 ${_products.length}');
     });
   }
 
@@ -68,7 +61,7 @@ class _InAppScreenState extends State<InAppScreen> {
 
   @override
   void dispose() {
-    _subscription.cancel();
+    // _subscription.cancel();
     super.dispose();
   }
 
