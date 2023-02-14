@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../helper/local_storage.dart';
 import '../utils/constants.dart';
 import '../utils/language/english.dart';
@@ -17,22 +18,14 @@ class HomeController extends GetxController {
   }
 
   void getCredentials() async {
-    final DocumentSnapshot userDoc = await FirebaseFirestore.instance
-        .collection('credentials')
-        .doc('manage-api-key')
-        .get();
-
+    final DocumentSnapshot userDoc = await FirebaseFirestore.instance.collection('credentials').doc('manage-api-key').get();
     LocalStorage.saveChatGptApiKey(key: userDoc.get('chat-gpt-api-key'));
-    LocalStorage.savePaypalClientId(key: userDoc.get('paypal-client-id'));
-    LocalStorage.savePaypalSecret(key: userDoc.get('paypal-secret'));
+    // LocalStorage.savePaypalClientId(key: userDoc.get('paypal-client-id'));
+    // LocalStorage.savePaypalSecret(key: userDoc.get('paypal-secret'));
 
     debugPrint("""
         Get ChatGpt Api Key ↙️
         ${LocalStorage.getChatGptApiKey()},
-        Get Paypal ClientId ↙️
-        ${LocalStorage.getPaypalClientId()},
-        Get Paypal Secret ↙️
-        ${LocalStorage.getPaypalSecret()},
         """);
   }
 
@@ -62,9 +55,5 @@ class HomeController extends GetxController {
     }
   }
 
-  final List<String> moreList = [
-    Strings.english,
-    Strings.spanish,
-    Strings.arabic
-  ];
+  final List<String> moreList = [Strings.english, Strings.spanish, Strings.arabic];
 }

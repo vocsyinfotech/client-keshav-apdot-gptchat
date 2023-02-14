@@ -40,11 +40,11 @@ dependencies:
   http_auth:
   flutter_stripe: ^7.0.0
   iconly:
-  change_app_package_name: ^1.1.0
   intl: ^0.17.0
 
 dev_dependencies:
-#  change_app_package_name: ^1.1.0
+#  flutter pub run change_app_package_name:main com.chatbot.ai
+  change_app_package_name: ^1.1.0
   #  flutter_launcher_icons: "^0.11.0"
   #
   #flutter_icons:

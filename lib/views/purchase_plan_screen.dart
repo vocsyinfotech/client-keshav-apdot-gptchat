@@ -29,7 +29,7 @@ class _PurchasePlanScreenState extends State<PurchasePlanScreen> {
         context: context,
         appTitle: Strings.subscriptionPlan.tr,
         onTap: () {
-          Get.toNamed(Routes.homeScreen);
+          Get.back();
         },
       ),
       body: _bodyWidget(context),

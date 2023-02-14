@@ -1,78 +1,33 @@
 {
   "project_info": {
-    "project_number": "157692101795",
-    "project_id": "chatbot-58c17",
-    "storage_bucket": "chatbot-58c17.appspot.com"
+    "project_number": "958427749096",
+    "project_id": "chatbot-193c3",
+    "storage_bucket": "chatbot-193c3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:157692101795:android:521c60c4faa1873aa5ab16",
+        "mobilesdk_app_id": "1:958427749096:android:f169173ba97b3dfc71c75d",
         "android_client_info": {
-          "package_name": "com.chatgpt.openai.chatbot"
+          "package_name": "com.chatbot.ai"
         }
       },
       "oauth_client": [
         {
-          "client_id": "157692101795-8m83mpcfsm8u248jpmdjuarkei5p0h24.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.chatgpt.openai.chatbot",
-            "certificate_hash": "a75428f40602a43671f5b69904e4b22f0caf9f45"
-          }
-        },
-        {
-          "client_id": "157692101795-2ij37r5mh5t3dig7cnrteee6ilvs31mg.apps.googleusercontent.com",
+          "client_id": "958427749096-c06u86984je5qlqmav4qtlnu695ompim.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB2wTF_RndEPrywEJ6AaJNJ0DhtcB45XbM"
+          "current_key": "AIzaSyA3pysynrUk9QWinzBPYa6RXxEg8GeE_mA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "157692101795-2ij37r5mh5t3dig7cnrteee6ilvs31mg.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:157692101795:android:98f5c35f8e930f32a5ab16",
-        "android_client_info": {
-          "package_name": "com.chatgpt.openai.chatbotapp"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "157692101795-37kr90k3k58ps8vc5kraf5smb295ddil.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.chatgpt.openai.chatbotapp",
-            "certificate_hash": "a75428f40602a43671f5b69904e4b22f0caf9f45"
-          }
-        },
-        {
-          "client_id": "157692101795-2ij37r5mh5t3dig7cnrteee6ilvs31mg.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyB2wTF_RndEPrywEJ6AaJNJ0DhtcB45XbM"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "157692101795-2ij37r5mh5t3dig7cnrteee6ilvs31mg.apps.googleusercontent.com",
+              "client_id": "958427749096-c06u86984je5qlqmav4qtlnu695ompim.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

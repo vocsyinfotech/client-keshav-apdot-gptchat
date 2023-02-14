@@ -11,12 +11,9 @@ String rewardedIos = "";
 
 class UnitIdHelper {
   getAdsId() async {
-    var bannerCollection = FirebaseFirestore.instance.collection('admobid').doc("bannerads");
-    final DocumentSnapshot bannerSnapshot = await bannerCollection.get();
-    var rewardedCollection = FirebaseFirestore.instance.collection('admobid').doc("rewardedAd");
-    final DocumentSnapshot rewardedSnapshot = await rewardedCollection.get();
-    var interstitialCollection = FirebaseFirestore.instance.collection('admobid').doc("interstitialAd");
-    final DocumentSnapshot interstitialSnapshot = await interstitialCollection.get();
+    final DocumentSnapshot bannerSnapshot = await FirebaseFirestore.instance.collection('admobid').doc("bannerads").get();
+    final DocumentSnapshot rewardedSnapshot = await FirebaseFirestore.instance.collection('admobid').doc("rewardedAd").get();
+    final DocumentSnapshot interstitialSnapshot = await FirebaseFirestore.instance.collection('admobid').doc("interstitialAd").get();
 
     bannerAndroid = bannerSnapshot.get('bannerAndroid') ?? "";
     bannerIos = bannerSnapshot.get('bannerIos') ?? "";
