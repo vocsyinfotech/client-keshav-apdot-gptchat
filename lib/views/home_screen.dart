@@ -93,6 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
             //watch Ad
             GestureDetector(
               onTap: () {
+                addAds(true);
                 Navigator.of(context).pop();
                 if (isWatchingAd) {
                   LocalStorage.saveLastPressed(lastDate);
@@ -158,7 +159,9 @@ class _HomeScreenState extends State<HomeScreen> {
       adUnitId: UnitIdHelper.rewardedAdUnitId,
       request: const AdRequest(),
       rewardedAdLoadCallback: RewardedAdLoadCallback(onAdLoaded: (RewardedAd ad) {
-        _rewardedAd = ad;
+        setState(() {
+          _rewardedAd = ad;
+        });
         print("Rewarded Loaded");
       }, onAdFailedToLoad: (LoadAdError error) {
         _rewardedAd = null;
@@ -196,9 +199,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      addAds(true);
-    });
     RxBool isDark = Get.isDarkMode.obs;
     Color backgroundColor = isDark.value ? CustomColor.whiteColor : CustomColor.primaryColor;
     return Scaffold(

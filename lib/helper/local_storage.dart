@@ -58,43 +58,43 @@ class LocalStorage {
     return [small, capital, languages];
   }
 
-  static savePlanExpiryDate(String planExpiry)async{
+  static savePlanExpiryDate(String planExpiry) async {
     final box = GetStorage();
     box.write(planExpiryDate, planExpiry);
   }
 
-  static String getPlanExpiryDate(){
+  static String getPlanExpiryDate() {
     final box = GetStorage();
     String date = box.read(planExpiryDate) ?? "2023-01-01";
     return date;
   }
 
-  static savePremiumStatus(bool status)async{
+  static savePremiumStatus(bool status) async {
     final box = GetStorage();
     box.write(isPremium, status);
   }
 
-  static bool getPremiumStatus(){
+  static bool getPremiumStatus() {
     bool status = GetStorage().read(isPremium) ?? false;
     return status;
   }
 
-  static int getAdCount(){
+  static int getAdCount() {
     int ac = GetStorage().read(adCount) ?? 0;
     return ac;
   }
 
-  static saveAdCount(int value) async{
+  static saveAdCount(int value) async {
     final box = GetStorage();
     await box.write(adCount, value);
   }
 
-  static String getLastPressed(){
+  static String getLastPressed() {
     String lp = GetStorage().read(lastPressed) ?? '2023-01-01';
     return lp;
   }
 
-  static saveLastPressed(String lp) async{
+  static saveLastPressed(String lp) async {
     final box1 = GetStorage();
     await box1.write(lastPressed, lp);
   }
@@ -168,8 +168,7 @@ class LocalStorage {
     await box.write(chatGptApiKey, key);
   }
 
-  static Future<void> savePaypalClientId(
-      {required String key}) async {
+  static Future<void> savePaypalClientId({required String key}) async {
     final box = GetStorage();
     await box.write(paypalClientId, key);
   }
@@ -183,13 +182,13 @@ class LocalStorage {
     final box = GetStorage();
     await box.write(textCount, count);
   }
+
   static Future<void> saveImageCount({required int count}) async {
     final box = GetStorage();
     await box.write(imageCount, count);
   }
 
-  static Future<void> saveOnboardDoneOrNot(
-      {required bool isOnBoardDone}) async {
+  static Future<void> saveOnboardDoneOrNot({required bool isOnBoardDone}) async {
     final box = GetStorage();
 
     await box.write(isOnBoardDoneKey, isOnBoardDone);
@@ -222,8 +221,9 @@ class LocalStorage {
   }
 
   static int getTextCount() {
-    return GetStorage().read(textCount)?? 0;
+    return GetStorage().read(textCount) ?? 0;
   }
+
   static int getImageCount() {
     return GetStorage().read(imageCount) ?? 0;
   }
@@ -265,7 +265,7 @@ class LocalStorage {
   }
 
   static bool showAdPermissioned() {
-    return GetStorage().read(showAdKey) ?? false;//should be false by default, was true
+    return GetStorage().read(showAdKey) ?? true; //should be false by default, was true
   }
 
   static String? get() {

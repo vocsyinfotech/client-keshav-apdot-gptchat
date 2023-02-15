@@ -43,14 +43,14 @@ dependencies:
   intl: ^0.17.0
 
 dev_dependencies:
-#  flutter pub run change_app_package_name:main com.chatbot.ai
+  #  flutter pub run change_app_package_name:main com.chatbot.ai
   change_app_package_name: ^1.1.0
-  #  flutter_launcher_icons: "^0.11.0"
-  #
-  #flutter_icons:
-  #  android: "launcher_icon"
-  #  ios: true
-  #  image_path: "assets/Logo/app_launcher.png"
+  flutter_launcher_icons: ^0.11.0
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/Logo/app_launcher.jpg"
   #  min_sdk_android: 21 # android min sdk min:16, default 21
 
   #  flutter_app_name: ^0.1.0
